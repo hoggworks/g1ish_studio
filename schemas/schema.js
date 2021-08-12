@@ -11,6 +11,7 @@ import post from './post'
 import video from './video'
 import author from './author'
 import social from './social'
+import config from './config'
 
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -27,6 +28,7 @@ export default createSchema({
     author,
     category,
     social,
+    config,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
