@@ -1,10 +1,10 @@
-import { GrDocumentText } from "react-icons/gr";
+import { GrThreeD } from "react-icons/gr";
 
 export default {
-  name: "post",
-  title: "Post",
+  name: "obj_file",
+  title: "3D Model",
   type: "document",
-  icon: GrDocumentText,
+  icon: GrThreeD,
   fields: [
     {
       name: "title",
@@ -21,31 +21,12 @@ export default {
       },
     },
     {
-      name: "author",
-      title: "Author",
-      type: "reference",
-      to: { type: "author" },
-    },
-    {
       name: "thumbnail",
       title: "Thumbnail",
       type: "image",
       options: {
         hotspot: true,
       },
-    },
-    {
-      name: "main_image",
-      title: "Main image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    },
-    {
-      name: "tags",
-      title: "Tags",
-      type: "tags",
     },
     {
       name: "excerpt",
@@ -59,29 +40,48 @@ export default {
       ],
     },
     {
-      name: "body",
-      title: "Body",
-      type: "blockContent",
+      name: "obj_file",
+      title: "OBJ File",
+      type: "file",
+      accepts: "model/obj",
     },
     {
-      name: "videos",
-      title: "Videos",
+      name: "tags",
+      title: "Tags",
+      type: "tags",
+    },
+    { name: "description", title: "Description", type: "blockContent" },
+    {
+      name: "download_links",
+      title: "Download Links",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "video" }] }],
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              title: "Site Name",
+              name: "site_name",
+              type: "string",
+            },
+            { title: "URL", name: "site_url", type: "url" },
+          ],
+        },
+      ],
     },
     {
-      name: "obj_files",
-      title: "OBJ Files",
+      name: "author",
+      title: "Author",
+      type: "reference",
+      to: { type: "author" },
+    },
+    {
+      name: "build_progress",
+      title: "Build Progress",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "obj_file" }] }],
-    },
-    {
-      name: "publishedAt",
-      title: "Published at",
-      type: "datetime",
+      of: [{ type: "reference", to: [{ type: "post" }, { type: "video" }] }],
     },
   ],
-
   preview: {
     select: {
       title: "title",

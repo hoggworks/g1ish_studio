@@ -1,75 +1,54 @@
+import { GrYoutube } from "react-icons/gr";
+
 export default {
-  name: 'video',
-  title: 'Video',
-  type: 'document',
+  name: "video",
+  title: "Video",
+  type: "document",
+  icon: GrYoutube,
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: "title",
+      title: "Title",
+      type: "string",
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
-        source: 'title',
+        source: "title",
         maxLength: 96,
       },
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
+      name: "video_id",
+      title: "Video ID",
+      type: "string",
+      placeholder: "mslWedpPsyw",
     },
     {
-      name: 'videoUrl',
-      title: 'Video URL',
-      type: 'url'
+      name: "description",
+      title: "Description",
+      type: "blockContent",
     },
     {
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    },
-    {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-    },
-    {
-      name: 'tags',
-      title: 'Tags',
-      type: 'tags',
-    },
-    {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
-    },
-    {
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
+      name: "tags",
+      title: "Tags",
+      type: "tags",
     },
   ],
 
   preview: {
     select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
+      title: "title",
+      author: "author.name",
+      media: "mainImage",
     },
     prepare(selection) {
-      const {author} = selection
+      const { author } = selection;
       return Object.assign({}, selection, {
         subtitle: author && `by ${author}`,
-      })
+      });
     },
   },
-}
+};
