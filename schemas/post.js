@@ -12,6 +12,11 @@ export default {
       type: "string",
     },
     {
+      name: "pinned",
+      title: "Pinned",
+      type: "boolean",
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",

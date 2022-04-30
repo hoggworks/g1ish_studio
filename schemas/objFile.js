@@ -21,6 +21,34 @@ export default {
       },
     },
     {
+      name: "colourScheme",
+      title: "Colour Scheme",
+      type: "string",
+      options: {
+        list: [
+          { title: "Autobot", value: "autobot" },
+          { title: "Decepticon", value: "decepticon" },
+          { title: "Other", value: "other" },
+        ], // <-- predefined values
+      },
+    },
+    {
+      name: "objType",
+      title: "Type of Obj",
+      type: "string",
+      options: {
+        list: [
+          { title: "Head", value: "head" },
+          { title: "Bust", value: "bust" },
+          { title: "Figure", value: "figure" },
+          { title: "Weapon", value: "weapon" },
+          { title: "Star Wars", value: "starwars" },
+          { title: "Star Trek", value: "startrek" },
+          { title: "Misc", value: "misc" },
+        ], // <-- predefined values
+      },
+    },
+    {
       name: "thumbnail",
       title: "Thumbnail",
       type: "image",
@@ -40,10 +68,25 @@ export default {
       ],
     },
     {
-      name: "obj_file",
+      name: "obj_files",
       title: "OBJ File",
-      type: "file",
-      accepts: "model/obj",
+      type: "array",
+      of: [
+        {
+          title: "File:",
+          name: "this_file",
+          type: "object",
+          fields: [
+            { title: "Caption", name: "caption", type: "string" },
+            {
+              title: "Obj File",
+              name: "obj_file",
+              type: "file",
+              accepts: "file/obj",
+            },
+          ],
+        },
+      ],
     },
     {
       name: "tags",
@@ -80,6 +123,16 @@ export default {
       title: "Build Progress",
       type: "array",
       of: [{ type: "reference", to: [{ type: "post" }, { type: "video" }] }],
+    },
+    {
+      name: "slideshow",
+      type: "array",
+      title: "Slide Show",
+      of: [
+        {
+          type: "image",
+        },
+      ],
     },
   ],
   preview: {
