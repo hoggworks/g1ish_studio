@@ -48,6 +48,21 @@ export default {
         ], // <-- predefined values
       },
     },
+    { name: "price", title: "Price", type: "number", default: 0 },
+    {
+      name: "progress",
+      title: "Build Progress",
+      type: "string",
+      options: {
+        list: [
+          { title: "Designing", value: "designing" },
+          { title: "Modelling", value: "modelling" },
+          { title: "Testing", value: "testing" },
+          { title: "Completed", value: "completed" },
+          { title: "Other", value: "other" },
+        ], // <-- predefined values
+      },
+    },
     {
       name: "thumbnail",
       title: "Thumbnail",
