@@ -11,7 +11,7 @@ import video from "./video";
 import author from "./author";
 import social from "./social";
 import config from "./config";
-import objFile from "./objFile";
+import obj_file from "./obj_file";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -27,7 +27,7 @@ export default createSchema({
     author,
     social,
     config,
-    objFile,
+    obj_file,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
